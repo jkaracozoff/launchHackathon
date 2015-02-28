@@ -4,7 +4,7 @@ html, body, #map-canvas {
         margin: 0px;
         padding: 0px;
         width: 100%;
-        background-image: url("img/deck.jpg");
+        background-image: url("#.jpg");
         background-size: cover;
       }
 
@@ -64,6 +64,7 @@ box-shadow: 0 0 0 2px white, 0 0 0 3px #27AE60;
 	text-align: center;
 }  
 
-#images {
-	text-align: center;
+.imageSize {
+	height: 300px;
+	width: 1200px;
 }
