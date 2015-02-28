@@ -1,0 +1,83 @@
+
+<html>
+<head>
+<title>Create Event</title>
+ <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen"
+     href="http://tarruda.github.com/bootstrap-datetimepicker/assets/css/bootstrap-datetimepicker.min.css">
+  </head>
+</head>
+<style>
+html { 
+  background: url(https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0CAcQjRw&url=http%3A%2F%2Fwww.climbingschoolusa.com%2Fclimbs%2Fadvanced.html&ei=MF3xVIH9EJLZoATq7IKoBA&bvm=bv.87269000,d.cGU&psig=AFQjCNEyhO08GjEs4z-NG49MMTosqb9u-w&ust=1425190560955324) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+</style>
+<body>
+<form action="/createevent" method="POST">
+<div align="center">
+<br><br>
+<input type="text" size="25" value="Event name" name="title">
+<br><br>
+<input type="text" size="25" value="Event Description" name="description">
+<br><br>
+<input type="text" size="25" value="Category" name="category">
+<br><br>
+<input type="text" size="25" value="Price" name="price">
+<br><br>
+<div id="datetimepicker1" class="input-append date">
+<input type="text"  name="timeStart">
+ <span class="add-on">
+<i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
+</span>
+</div>
+<br><br>
+<div id="datetimepicker2" class="input-append date">>
+<input type="text"  name="timeEnd">
+ <span class="add-on">
+<i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
+</span>
+</div>
+<br><br>
+<input type="file" name="photo"</input>
+
+<br><input type="submit" value="Create Event!"><br>
+</div>
+</form>
+</body>
+    <script type="text/javascript"
+     src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js">
+    </script> 
+    <script type="text/javascript"
+     src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js">
+    </script>
+    <script type="text/javascript"
+     src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.min.js">
+    </script>
+    <script type="text/javascript"
+     src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.pt-BR.js">
+    </script>
+    <script type="text/javascript">
+      $('#datetimepicker1').datetimepicker({
+        format: 'dd/MM/yyyy hh:mm:ss',
+        language: 'pt-BR'
+      });
+
+         $('#datetimepicker2').datetimepicker({
+        format: 'dd/MM/yyyy hh:mm:ss',
+        language: 'pt-BR'
+      });
+
+         $.fn.datetimepicker.defaults = {
+         	  pick12HourFormat: true,   // enables the 12-hour format time picker       // disables seconds in the time picker
+  startDate: -Infinity,      // set a minimum date
+  endDate: Infinity   
+
+         }
+    </script>
+</html>
+
+
