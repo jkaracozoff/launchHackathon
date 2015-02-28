@@ -19,7 +19,7 @@ exports.getPrediction = function(req, res) {
             toRegion = bodyJson2.sr[0].id;
             //res.end(body);
 
-            request('http://terminal2.expedia.com:80/packages?originAirport='+fromAirport+'&destinationAirport='+toAirport+'&departureDate=2015-03-15&returnDate=2015-03-20&regionid='+toRegion+'&limit=1&apikey=teGJ1Z9W3pGoQl0n5wGsAlJOXlveffWL', function (error3, response3, body3) {
+            request('http://terminal2.expedia.com:80/packages?originAirport='+fromAirport+'&destinationAirport='+toAirport+'&departureDate=2015-03-15&returnDate=2015-03-20&regionid='+toRegion+'&limit=4&apikey=teGJ1Z9W3pGoQl0n5wGsAlJOXlveffWL', function (error3, response3, body3) {
                 //var bodyJson3 = JSON.parse(body3);
 
                 res.end(body3);
