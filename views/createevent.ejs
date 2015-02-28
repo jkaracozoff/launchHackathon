@@ -13,23 +13,21 @@ html {
 }
 </style>
 <body>
-<form action="/createevent" method="POST" enctype="multipart/form-data">
+<form action="/createevent" method="POST">
 <div align="center">
 <br><br>
 <input type="text" size="25" value="Event name" name="title">
-<br>
+
 <input type="text" size="25" value="Event Description" name="description">
-<br>
+
 <input type="text" size="25" value="Category" name="category">
-<br>
-<input type="text" size="25" value="Price" value="price" name="price">
-<br>
-<input type="text" size="25" value="Start Time" value="timeStart" name="timeStart">
-<br>
-<input type="text" size="25" value="End Time" value="timeEnd" name="timeEnd">
-<br>
-<input type="file" multiple size="25" value="Photo" value="photo">
-<br>
+
+<input type="text" size="25" value="Price" name="price">
+
+<input type="text" size="25" value="Start Time" name="timeStart">
+
+<input type="text" size="25" value="End Time"  name="timeEnd">
+
 <br><input type="submit" value="Create Event!"><br>
 </div>
 </form>
