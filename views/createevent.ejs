@@ -1,0 +1,37 @@
+
+<html>
+<head>
+<title>Create Event</title>
+</head>
+<style>
+html { 
+  background: url(https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0CAcQjRw&url=http%3A%2F%2Fwww.climbingschoolusa.com%2Fclimbs%2Fadvanced.html&ei=MF3xVIH9EJLZoATq7IKoBA&bvm=bv.87269000,d.cGU&psig=AFQjCNEyhO08GjEs4z-NG49MMTosqb9u-w&ust=1425190560955324) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+</style>
+<body>
+<form name="myform" action="localhost:3000/createevent" method="POST" enctype="multipart/form-data">
+<div align="center">
+<br><br>
+<input type="text" size="25" value="Event name" name="title">
+<br>
+<input type="text" size="25" value="Event Description" name="description">
+<br>
+<input type="text" size="25" value="Category" name="category">
+<br>
+<input type="text" size="25" value="Price" value="price">
+<br>
+<input type="text" size="25" value="Start Time" value="timeStart">
+<br>
+<input type="text" size="25" value="End Time" value="timeEnd">
+<br>
+<input type="file" multiple size="25" value="Photo" value="photo">
+<br>
+<br><input type="submit" value="Create Event!"><br>
+</div>
+</form>
+</body>
+</html>
