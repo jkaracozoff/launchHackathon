@@ -39,7 +39,7 @@ app.get('/createevent', function(req, res){
 app.post('/createevent', function(req, res){
   console.log(req.body);
 	if(!req.body.title || !req.body.category || !req.body.timeStart || !req.body.timeEnd || !req.body.price || !req.body.description){
-     return res.send(400, 'Missing guide ID');
+     return res.send(400, 'Missing critical form details');
 
 	}
     else{
