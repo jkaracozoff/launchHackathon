@@ -78,12 +78,13 @@ function geolocate() {
     </script>
     
   </head>
-
+  <header>
+  <p id="placeTime">I want to go to <strong>Madrid, Spain</strong> in <strong>June</strong></p>
+  </header>
   <body onload="initialize()">
     <div id="locationField">
-      Let's go to &nbsp <input id="autocomplete" placeholder="Enter Destination" onFocus="geolocate()" type="text"></input> 
-      sometime in <input id="month" placeholder="Enter Month" type="text"></input>
-      <button class="next" type="button" onclick="location.href = 'chooseEvent.html';">GO!</button>
+      I want to &nbsp <input id="month" placeholder="Enter Event" type="text"></input>
+      <button class="next" type="button" onclick="location.href = 'events.html';">Go!</button>
     </div>
 
   </body>
