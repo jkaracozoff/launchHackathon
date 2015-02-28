@@ -25,6 +25,11 @@ module.exports = {
 
   sessionSecret: process.env.SESSION_SECRET || 'Your Session Secret goes here',
 
+  expedia: {
+    consumerKey: process.env.EXPEDIA_KEY || 'ss47997prvcm58rtyrc9que4',
+    consumerSecret: process.env.EXPEDIA_SECRET || '6jwU757W'
+  },
+
   mailgun: {
     user: process.env.MAILGUN_USER || 'postmaster@sandbox697fcddc09814c6b83718b9fd5d4e5dc.mailgun.org',
     password: process.env.MAILGUN_PASSWORD || '29eldds1uri6'
