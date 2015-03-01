@@ -21,6 +21,14 @@ var mongoose = require('mongoose');
 var passport = require('passport');
 var expressValidator = require('express-validator');
 var connectAssets = require('connect-assets');
+var fs = require('fs');
+var path = require('path');
+
+
+//Tables
+var mongojs = require('mongojs');
+var db = mongojs('admin:batsignal@ds041861.mongolab.com:41861/batsignal');
+var guides = db.collection('guides');
 
 /**
  * Controllers (route handlers).
@@ -199,6 +207,31 @@ app.get('/auth/venmo', passport.authorize('venmo', { scope: 'make_payments acces
 app.get('/auth/venmo/callback', passport.authorize('venmo', { failureRedirect: '/api' }), function(req, res) {
   res.redirect('/api/venmo');
 });
+
+
+
+//For uploading new photo to event
+app.post('/createevent/:eventtitle', function(req, res){
+
+if(typeof req.files.photo){
+        var tmp_path = req.files.photo.path;
+        var random = Math.floor((Math.random() * 100) + 1);
+            var target_path = './photos/' +  req.params.eventtitle  +  random + ".jpg";
+           fs.rename(tmp_path, target_path, function(err) {
+                if (err) throw err;
+                // delete the temporary file, so that the explicitly set temporary upload dir does not get filled with unwanted files
+                fs.unlink(tmp_path, function() {
+         
+                    if (err) throw err;
+                    guides.update({'title': req.params.eventtitle},{"eventPhoto": target_path});
+                    res.send('file uploaded ' + req.files.photo.size + ' bytes');
+
+                });
+            });
+        };
+
+});
+
 
 /**
  * Error Handler.
