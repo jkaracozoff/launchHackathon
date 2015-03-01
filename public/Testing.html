@@ -11,16 +11,25 @@
     <button id="search">search</button>
     <div id="results"></div>
     <script>
-      $("#search").click(function(){
-        $.getJSON("https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=fuzzy+monkey?jsoncallback=?",
-        function(data) {
 
-          $.each(data.responseData[0], function(i,item){
+        $.ajax({url:'https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=fuzzy+monkey',
+           dataType: 'JSONP',
+          jsonpCallback: 'callback',
+          type: 'GET',
+          success: function (data) {
+            $.each(data.responseData.results, function(i,item){
             $("<img/>").attr("src", item.unescapedUrl).prependTo("#results");
             if ( i == 10 ) return false;
           });
+            
+            }
+           });
+        /*
+
+
         });
-      });
+*/
+
     </script>
   </body>
 </html>
