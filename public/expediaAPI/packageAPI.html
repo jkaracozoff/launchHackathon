@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+<head>
+
+    <title>How to Parse a JSON file using jQuery</title>
+    
+    <style>
+        body{
+            text-align: center;
+            font-family: arial;
+        }
+
+        .button{
+            margin:20px;
+            font-size:16px;
+            font-weight: bold;
+            padding:5px 10px;
+        }
+    </style>
+
+
+</head>
+<body>
+    <input type="button" value="Get JSON" class="button" />
+    <br />
+    <span id="results"></span>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+    <script>
+
+        //When DOM loaded we attach click event to button
+        $(document).ready(function() {
+            
+            //after button is clicked we download the data
+            $('.button').click(function(){
+
+                //start ajax request
+                $.ajax({
+                    url: "http://terminal2.expedia.com/packages?departureDate=2015-04-20&originAirport=SEA&destinationAirport=LHR&returnDate=2015-04-22&regionid=6000479&apikey=5rNDlrx75JGRgbV8GOdjlPiGVe4TKGQC",
+                    //force to handle it as text
+                    dataType: "text",
+                    success: function(data) {
+                        
+                        //data downloaded so we call parseJSON function 
+                        //and pass downloaded data
+                        var json = $.parseJSON(data);
+                        //now json variable contains data in json format
+                        //let's display a few items
+                     
+                        var PackageSearchResultList = (json.PackageSearchResultList.PackageSearchResult);
+                        
+                        
+                        $('#results').html(
+                          
+                        '<br/>TotalPrice: ' + PackageSearchResultList[0].PackagePrice.TotalPrice.Value +
+                        '<br/>TotalSavings: ' + PackageSearchResultList[0].PackagePrice.TotalSavings.Value +
+                        '<br/>Deatils: ' + PackageSearchResultList[0].DetailsUrl
+                        
+                        )
+                        ;
+                        
+                        
+                        
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
