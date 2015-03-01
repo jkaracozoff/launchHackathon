@@ -62,7 +62,8 @@
     "yui": "^3.18.1",
     "moment": "latest",
     "mongojs": "latest",
-    "ejs": "latest"
+    "ejs": "latest",
+    "consolidate": "latest"
   },
   "devDependencies": {
     "blessed": "^0.0.47",

@@ -74,21 +74,26 @@ function geolocate() {
   }
 }
 // [END region_geolocation]
+
   
     </script>
     
   </head>
   
   <header>
-   <% if(this.user){%>
-   
-  <button class="next" type="button"  onclick="location.href = '/login';">Login</button>
+     <div hidden="true">
+    <%= (!!locals.user.profile)?user:'' %>
+    </div>
+
+
+   <%if( locals.user == ''){%>
+
+  <button id="login" type="button"  onclick="location.href = '/login'">Login</button>
  <%}else{%>
-    <button id="profile" type="button" onclick="location.href = '/account';">
-     
+    <button id="profile" type="button" onclick="location.href = '/account'">
      <img src=<%=user.profile.picture%>>
      <a><%=user.profile.name%></a>
-
+  
     </button>
     
   <%}%>
