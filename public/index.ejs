@@ -27,20 +27,37 @@
 		</div>
 		<nav class="container">
 			<div class="main-search">
+				<form method="post" action"/search.ejs">
 				<div class="normal-text">I want to go to</div>
 				<div class="normal-text" style="color:#C89777;">
-					&nbsp;<span id="location" contenteditable="true">Rome, Italy</span>&nbsp;
+					&nbsp;<input id="location" type="text" placeholder="Rome, Italy"> </input>&nbsp;
 					<div class="underline-box"></div>
 				</div>
 				<div class="normal-text">sometime in</div>
 				<div class="normal-text" style="color:#C89777; outline: none;">
-					&nbsp;<span contenteditable="true">March</span>&nbsp;
-					<div class="underline-box"></div>
+		  &nbsp;<select id="selectNumber" contenteditable="true">     
+                 <option>Choose a month</option>
+				 </select>&nbsp;
+				<div class="underline-box"></div>
 				</div>
-				<div class="normal-text">.</div>
+				<div class="normal-text">.
+				<button>Lets go</button></div>
+				
+			 </form>
 			</div>
 		</nav>
 	</div>
 	<script src="selectStart.js"></script>
+	<script>
+var select = document.getElementById("selectNumber");
+var options = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+for(var i = 0; i < options.length; i++) {
+    var opt = options[i];
+    var el = document.createElement("option");
+    el.textContent = opt;
+    el.value = opt;
+    select.appendChild(el);
+}
+</script>
 </body>
 </html>
