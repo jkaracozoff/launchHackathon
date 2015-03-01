@@ -122,11 +122,15 @@
 	color: rgba(37, 37, 37, 0.49);
 }
 
+.preferences {
+	margin-top: 145px
+}
+
 .results-container {
 	position: relative;	
 	width: 100%;
 	height: auto;
-	margin-top: 140px;
+	margin-top: 30px;
 }
 
 .event-tile {
