@@ -3,8 +3,17 @@
 	<title>Veique</title>
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="main.css">
-</head>
 
+</head>
+<header>
+<div id="navmenu">
+<ul>
+	<li><a>Powered by</a></li>
+	<li><a class="redbull" href="http://redbull.com"></a></li>
+	<li><a class="gopro" href="http://gopro.com"></a></li>
+</ul>
+</div>		
+</header>	
 <body>
 	<div class="homepage">
 		<div class="nav">
@@ -27,37 +36,53 @@
 		</div>
 		<nav class="container">
 			<div class="main-search">
-				<form method="post" action"/search.ejs">
+			
 				<div class="normal-text">I want to go to</div>
 				<div class="normal-text" style="color:#C89777;">
-					&nbsp;<input id="location" type="text" placeholder="Rome, Italy"> </input>&nbsp;
-					<div class="underline-box"></div>
-				</div>
-				<div class="normal-text">sometime in</div>
-				<div class="normal-text" style="color:#C89777; outline: none;">
-		  &nbsp;<select id="selectNumber" contenteditable="true">     
-                 <option>Choose a month</option>
-				 </select>&nbsp;
+					<input id="location" type="text" name="location" placeholder="Vail, CO" autocomplete="on"> </input>
 				<div class="underline-box"></div>
 				</div>
-				<div class="normal-text">.
-				<button>Lets go</button></div>
+				<input type="hidden" id="city2" name="city" />
+				<input type="hidden" id="cityLat" name="cityLat" />
+				<input type="hidden" id="cityLng" name="cityLng" />  
+				<div class="normal-text">sometime in</div>
+				<div class="normal-text" style="color:#C89777; outline: none;">
+		         <input id="month" type="text" placeholder="November" name="month"></input>     
+				<div class="underline-box"></div>
+				</div>
 				
-			 </form>
+				<button class="mybutton" onclick="window.location = '/search';" type="submit">Lets go!</button>
+				
+			
 			</div>
 		</nav>
 	</div>
-	<script src="selectStart.js"></script>
+	<script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> 
+	
+	<script src="js/inputresize.js"></script>
+    <script src="js/inputresize2.js"></script>
 	<script>
-var select = document.getElementById("selectNumber");
-var options = ["January","February","March","April","May","June","July","August","September","October","November","December"];
-for(var i = 0; i < options.length; i++) {
-    var opt = options[i];
-    var el = document.createElement("option");
-    el.textContent = opt;
-    el.value = opt;
-    select.appendChild(el);
-}
+
+
+
+        function initialize() {
+        var input = document.getElementById('location');
+        var autocomplete = new google.maps.places.Autocomplete(input);
+        google.maps.event.addListener(autocomplete, 'place_changed', function () {
+            var place = autocomplete.getPlace();
+            document.getElementById('city2').value = place.name;
+            document.getElementById('cityLat').value = place.geometry.location.lat();
+            document.getElementById('cityLng').value = place.geometry.location.lng();
+            //alert("This function is working!");
+            //alert(place.name);
+           // alert(place.address_components[0].long_name);
+
+        });
+    }
+    google.maps.event.addDomListener(window, 'load', initialize); 
+
+
 </script>
 </body>
 </html>

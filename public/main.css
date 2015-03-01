@@ -2,6 +2,90 @@
     font-family: Glyphter;
     src: url(fonts/Glyphter.ttf);
 }
+input[type=text] {
+	background: transparent;
+    border: none;
+}
+
+input[type=text]:focus {border-color:#333; }
+
+::-webkit-input-placeholder {
+   color: rgba(200, 151, 119, 0.5);
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: rgba(200, 151, 119, 0.5); 
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: rgba(200, 151, 119, 0.5);
+}
+
+:-ms-input-placeholder {  
+   color: rgba(200, 151, 119, 0.5);
+}
+
+#navmenu ul {margin: 0; padding: 0; 
+	list-style-type: none; list-style-image: none;
+	 }
+#navmenu li {display: inline; }
+
+#location {
+	width: 120px;
+	display: inline-block;
+	color: rgba(200, 151, 119, 1);;
+	font-size: 35px;
+	font-weight: bold;
+	margin-left: 2px;
+	margin-top: -5px;
+	margin-right: 3px;
+	background-color: none;
+	border: none;
+	font-family: 'Open Sans', sans-serif;
+	-webkit-font-smoothing: antialiased;
+}
+#redbull{
+background-image: url('img/redbull.png');
+}
+#gopro{
+background-image: url('img/gopro.jpg');
+}
+#month {
+	width: 120px;
+	display: inline-block;
+	color: rgba(200, 151, 119, 1);;
+	font-size: 35px;
+	font-weight: bold;
+	margin-left: 2px;
+	margin-top: -5px;
+	margin-right: -3px;
+	background-color: none;
+	border: none;
+	font-family: 'Open Sans', sans-serif;
+	-webkit-font-smoothing: antialiased;q
+}
+
+
+.myButton {
+	background-color:#A17960;;
+	height: 50px;
+    width: 60px;
+    margin-top: 6px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:arial;
+	text-decoration:none;
+}
+.myButton:hover {
+	background-color:white;
+	color: black;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+
 
 .homepage {
 	width: 100%;
@@ -299,14 +383,9 @@
 	text-shadow: none;
 }
 
-#location, span {
-	-webkit-user-select: -webkit-none;
-	user-select: none;
-}
 
-span:read-write:focus {
-        outline: none;
-    }
+
+
 
 .underline-box {
 	width: 100%;

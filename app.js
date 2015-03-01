@@ -113,6 +113,7 @@ app.use(express.static(path.join(__dirname, 'public'), { maxAge: 31557600000 }))
 app.get('/expedia/:from/:to', expediaController.getPrediction);
 
 app.get('/',homeController.index);
+app.get('/search',homeController.search);
 app.get('/createevent', publicController.createevent);
 app.post('/createevent', publicController.postevent);
 app.get('/login', userController.getLogin);
