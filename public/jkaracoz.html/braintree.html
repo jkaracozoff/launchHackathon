@@ -1,0 +1,29 @@
+<html>
+<script>
+var util = require('util'),
+    braintree = require('braintree');
+
+var gateway = braintree.connect({
+  environment: braintree.Environment.Sandbox,
+  merchantId: 'mwyc3dv8bzmywpgr',
+  publicKey: 'bxc3p5jrcv5k7845',
+  privateKey: 'f8aedb7f3e88cc7f10fd7dad5e348c73'
+});
+
+gateway.transaction.sale({
+  amount: '5.00',
+  creditCard: {
+    number: '5105105105105100',
+    expirationDate: '05/12'
+  }
+}, function (err, result) {
+  if (err) throw err;
+
+  if (result.success) {
+    util.log('Transaction ID: ' + result.transaction.id);
+  } else {
+    util.log(result.message);
+  }
+});
+</script>
+</html>

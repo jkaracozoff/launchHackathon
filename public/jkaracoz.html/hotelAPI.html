@@ -1,0 +1,140 @@
+<!doctype html>
+<html>
+<head>
+
+    <title>How to Parse a JSON file using jQuery</title>
+    
+    <style>
+        body{
+            text-align: center;
+            font-family: arial;
+        }
+
+        .button{
+            margin:20px;
+            font-size:16px;
+            font-weight: bold;
+            padding:5px 10px;
+        }
+    </style>
+
+
+</head>
+<body>
+    <input type="button" value="Get JSON" class="button" />
+    <br />
+    <span id="results"></span>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    
+    <script>
+
+        //When DOM loaded we attach click event to button
+        $(document).ready(function() {
+            
+            //after button is clicked we download the data
+            $('.button').click(function(){
+
+                //start ajax request
+                $.when($.ajax({
+                    url: "http://terminal2.expedia.com/nlp/results?q=Hotels+near+Sacramento&apikey=5rNDlrx75JGRgbV8GOdjlPiGVe4TKGQC",
+                    //force to handle it as text
+                    dataType: "text",
+                    // Options for 1st ajax call
+                    success: function(data) {
+                                
+                        //data downloaded so we call parseJSON function 
+                        //and pass downloaded data
+                        var json = $.parseJSON(data);
+                        //now json variable contains data in json format
+                        //let's display a few items
+                        var concepts = (json.concepts);
+                        var result = (json.result);
+                       
+                        $('#results').html(
+                          
+                        '<br/>' + result.hotels[2].id +
+                        '<br/>' + result.hotels[2].name +
+                        '<br/>' + result.hotels[2].score +
+                        
+                        '<br/><br/>' + result.hotels[3].id +
+                        '<br/>' + result.hotels[3].name +
+                        '<br/>' + result.hotels[3].score                        
+                        )
+                        ;
+                        
+                        
+                        
+                    }
+                });
+            ),
+            $.ajax({
+            
+                    url: "http://terminal2.expedia.com/nlp/results?q=Hotels+near+Sacramento&apikey=5rNDlrx75JGRgbV8GOdjlPiGVe4TKGQC",
+                    //force to handle it as text
+                    dataType: "text",
+                    // Options for 1st ajax call
+                    success: function(data) {
+
+                        // Second ajax call
+                        $.ajax({url: "http://terminal2.expedia.com/nlp/results?q=Hotels+near+San+Francisco&apikey=5rNDlrx75JGRgbV8GOdjlPiGVe4TKGQC",
+                    //force to handle it as text
+                    dataType: "text",
+                              // Options for 2nd ajax call
+                                 success: function (data) {
+                                 //data downloaded so we call parseJSON function 
+                        //and pass downloaded data
+                        var json = $.parseJSON(data);
+                        //now json variable contains data in json format
+                        //let's display a few items
+                        var concepts = (json.concepts);
+                        var result = (json.result);
+                       
+                        $('#results').html(
+                          
+                        '<br/>' + result.hotels[2].id +
+                        '<br/>' + result.hotels[2].name +
+                        '<br/>' + result.hotels[2].score +
+                        
+                        '<br/><br/>' + result.hotels[3].id +
+                        '<br/>' + result.hotels[3].name +
+                        '<br/>' + result.hotels[3].score                        
+                        )
+                        ;
+                                 
+                                 }
+                                
+                        //data downloaded so we call parseJSON function 
+                        //and pass downloaded data
+                        var json = $.parseJSON(data);
+                        //now json variable contains data in json format
+                        //let's display a few items
+                        var concepts = (json.concepts);
+                        var result = (json.result);
+                       
+                        $('#results').html(
+                          
+                        '<br/>' + result.hotels[2].id +
+                        '<br/>' + result.hotels[2].name +
+                        '<br/>' + result.hotels[2].score +
+                        
+                        '<br/><br/>' + result.hotels[3].id +
+                        '<br/>' + result.hotels[3].name +
+                        '<br/>' + result.hotels[3].score                        
+                        )
+                        ;
+                        
+                        
+                        
+                    }
+                });
+            })
+            
+            )).then(function (resp1, resp2) {
+            
+            
+        });
+    </script>
+
+</body>
+</html>

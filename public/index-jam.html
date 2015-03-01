@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Veique</title>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="main.css">
+	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
+    <script>
+// This example displays an address form, using the autocomplete feature
+// of the Google Places API to help users fill in the information.
+
+var placeSearch, autocomplete;
+var componentForm = {
+  street_number: 'short_name',
+  route: 'long_name',
+  locality: 'long_name',
+  administrative_area_level_1: 'short_name',
+  country: 'long_name',
+  postal_code: 'short_name'
+};
+
+function initialize() {
+  // Create the autocomplete object, restricting the search
+  // to geographical location types.
+  autocomplete = new google.maps.places.Autocomplete(
+      /** @type {HTMLInputElement} */(document.getElementById('autocomplete')),
+      { types: ['geocode'] });
+  // When the user selects an address from the dropdown,
+  // populate the address fields in the form.
+  google.maps.event.addListener(autocomplete, 'place_changed', function() {
+    fillInAddress();
+  });
+}
+
+// [START region_fillform]
+function fillInAddress() {
+  // Get the place details from the autocomplete object.
+  var place = autocomplete.getPlace();
+
+  for (var component in componentForm) {
+    document.getElementById(component).value = '';
+    document.getElementById(component).disabled = false;
+  }
+
+  // Get each component of the address from the place details
+  // and fill the corresponding field on the form.
+  for (var i = 0; i < place.address_components.length; i++) {
+    var addressType = place.address_components[i].types[0];
+    if (componentForm[addressType]) {
+      var val = place.address_components[i][componentForm[addressType]];
+      document.getElementById(addressType).value = val;
+    }
+  }
+}
+// [END region_fillform]
+
+// [START region_geolocation]
+// Bias the autocomplete object to the user's geographical location,
+// as supplied by the browser's 'navigator.geolocation' object.
+function geolocate() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      var geolocation = new google.maps.LatLng(
+          position.coords.latitude, position.coords.longitude);
+      var circle = new google.maps.Circle({
+        center: geolocation,
+        radius: position.coords.accuracy
+      });
+      autocomplete.setBounds(circle.getBounds());
+    });
+  }
+}
+// [END region_geolocation]
+
+  
+    </script>
+</head>
+
+<header>
+     <div hidden="true">
+    <%= (!!locals.user.profile)?user:'' %>
+    </div>
+
+
+   <%if( locals.user == ''){%>
+
+  <button id="login" type="button"  onclick="location.href = '/login'">Login</button>
+ <%}else{%>
+    <button id="profile" type="button" onclick="location.href = '/account'">
+     <img src=<%=user.profile.picture%>>
+     <a><%=user.profile.name%></a>
+  
+    </button>
+    
+  <%}%>
+  </header>
+  
+<body>
+	<div class="homepage">
+		<div class="nav">
+			<div class="brand">
+			</div>
+			<div class="links">
+				<div class="hyperlink">Sign in</div>
+				<div class="hyperlink">Become a guide</div>
+			</div>
+		</div>
+		<nav class="container">
+			<div class="main-search">
+				<div class="normal-text">I want to go to</div>
+				<div class="normal-text" style="color:#C89777;">
+					&nbsp;<span id="location" contenteditable="true"><input id="autocomplete" placeholder="Enter Destination" onFocus="geolocate()" type="text"></input></span>&nbsp;
+					<div class="underline-box"></div>
+				</div>
+				<div class="normal-text">sometime in</div>
+				<div class="normal-text" style="color:#C89777; outline: none;">
+					&nbsp;<span contenteditable="true">March</span>&nbsp;
+					<div class="underline-box"></div>
+				</div>
+				<div class="normal-text">.</div>
+			</div>
+		</nav>
+	</div>
+	<script src="selectStart.js"></script>
+</body>
+</html>
+
+<span contenteditable="true"></span>

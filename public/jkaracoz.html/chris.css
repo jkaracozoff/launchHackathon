@@ -1,0 +1,82 @@
+html, body, #map-canvas {
+        font-family: sans-serif;
+        height: 100%;
+        margin: 0px;
+        padding: 0px;
+        width: 100%;
+        background-image: url("#.jpg");
+        background-size: cover;
+      }
+
+#login {
+position: absolute;
+right: 0px;
+width: 200px;
+background-color: #3498db;
+} 
+
+#signup {
+position: absolute;
+right: 200px;
+width: 200px;
+background-color: #2ecc71;
+}       
+
+#locationField {
+      font-family: sans-serif;
+      text-align: center;
+      position: fixed;
+      width: 100%;
+      top: 50%;
+      }
+      
+#autocomplete {
+        position: relative;
+        width: 200px;
+        height: 30px;
+      }
+      
+#month {
+        position: relative;
+        width: 200px;
+        height: 30px;
+      } 
+      
+.next
+	{
+	background-color: #3498db;
+	height: 30px;
+	border: 0 none;
+	border-radius: 1px;
+	}    
+	margin: 10px 5px;
+}
+
+.next:hover{
+	box-shadow: 0 0 0 2px white, 0 0 0 3px #27AE60;
+}
+
+.next:hover {
+box-shadow: 0 0 0 2px white, 0 0 0 3px #27AE60;
+}     
+
+#placeTime {
+	text-align: center;
+}  
+
+.imageSize {
+	height: 300px;
+	width: 1200px;
+}
+.thumbs {
+    width: 1800px;
+    height: 1200px;
+    overflow: hidden;
+}
+
+.thumbs img {
+    width: 1800px;
+    height: 1200px;
+    margin: -75px 0 0 -100px;
+    
+    }

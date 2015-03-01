@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Place Autocomplete Address Form</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <link href="events.css" rel="stylesheet">
+
+    <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  </head>
+  <header>
+  <p id="placeTime">I want to go to <strong>Madrid, Spain</strong> in <strong>June</strong></p>
+  <p id="placeTime">While I'm there I want to <strong>Rock Climb</strong></p>
+  </header>
+  <body onload="initialize()">
+  
+
+
+<div id="images">  
+
+<script>
+        var locationId = "Rock+Climbing+Amazing"
+        $.ajax({url:'https://ajax.googleapis.com/ajax/services/search/images?v=1.0&imgsz=huge&imgtype=photo&rsz=1&tbs=iar:xw&q=' + locationId,
+           dataType: 'JSONP',
+          jsonpCallback: 'callback',
+          type: 'GET',
+          success: function (data) {
+            $.each(data.responseData.results, function(i,item){
+            $("<img/>").attr("src", item.unescapedUrl).prependTo("#results");
+            if ( i == 10 ) return false;
+          });
+            
+            }
+           });
+</script>
+
+<script>
+        var locationId = "Rock+Climbing+Amazing"
+        $.ajax({url:'https://ajax.googleapis.com/ajax/services/search/images?v=1.0&imgsz=huge&imgtype=photo&rsz=1&tbs=iar:xw&q=' + locationId,
+           dataType: 'JSONP',
+          jsonpCallback: 'callback',
+          type: 'GET',
+          success: function (data) {
+            $.each(data.responseData.results, function(i,item){
+            $("<img/>").attr("src", item.unescapedUrl).prependTo("#results");
+            if ( i == 10 ) return false;
+          });
+            
+            }
+           });
+</script>
+<br/>
+</div>
+<div id="results" class='thumbs'></div>
+<div id="hey" class='thumbs'></div>
+  </body>
+</html>
