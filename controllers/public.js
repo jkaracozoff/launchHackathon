@@ -14,12 +14,12 @@ exports.createevent = function(req, res) {
 exports.postevent = function(req, res){
     console.log(req.files);
 
-	if(!req.body.title || !req.body.category || !req.body.timeStart || !req.body.timeEnd || !req.body.price || !req.body.description){
+	if(!req.body.title || !req.body.category || !req.body.timeStart || !req.body.timeEnd || !req.body.price || !req.body.description || !req.body.city || !req.body.cityLng || !req.body.cityLat){
      return res.status(500).send('Something broke!');
 
 	}
     else{
-	guides.update({'title': req.body.title}, {"title": req.body.title, "category": req.body.category,"timeStart":req.body.timeStart,"timeEnd": req.body.timeEnd,"price": req.body.price, "description": req.body.description, "location": req.body.geo}, {upsert: true});
+	guides.update({'title': req.body.title}, {"title": req.body.title, "category": req.body.category,"timeStart":req.body.timeStart,"timeEnd": req.body.timeEnd,"price": req.body.price, "description": req.body.description, "city": req.body.city, "citylat": req.body.cityLat, "citylong": req.body.cityLng}, {upsert: true});
 			if(req.files.length > 0){
 				var tmp_path = req.files.photo.path;
 				var random = Math.floor((Math.random() * 100) + 1);

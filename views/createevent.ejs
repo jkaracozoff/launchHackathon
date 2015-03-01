@@ -43,7 +43,10 @@ html {
 </span>
 </div>
 <br><br>
-<input id="geocomplete" type="text" name"geo">
+<input id="searchTextField" type="text" size="50" placeholder="Enter a location" autocomplete="on" runat="server" />  
+<input type="hidden" id="city2" name="city" />
+<input type="hidden" id="cityLat" name="cityLat" />
+<input type="hidden" id="cityLng" name="cityLng" />  
 <br><br>
 
 <input type="file" name="photo"</input>
@@ -67,13 +70,14 @@ html {
      src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.pt-BR.js">
     </script>
     <script type="text/javascript">
+    /*
            var autocomplete = new google.maps.places.Autocomplete($("#geocomplete")[0], {});
 
             google.maps.event.addListener(autocomplete, 'place_changed', function() {
                 var place = autocomplete.getPlace();
                 console.log(place.address_components);
             });
-
+*/
       $('#datetimepicker1').datetimepicker({
         format: 'MM/dd/yyyy hh:mm PP',
         language: 'en'
@@ -90,6 +94,22 @@ html {
   endDate: Infinity   
 
          }
+        function initialize() {
+        var input = document.getElementById('searchTextField');
+        var autocomplete = new google.maps.places.Autocomplete(input);
+        google.maps.event.addListener(autocomplete, 'place_changed', function () {
+            var place = autocomplete.getPlace();
+            document.getElementById('city2').value = place.name;
+            document.getElementById('cityLat').value = place.geometry.location.lat();
+            document.getElementById('cityLng').value = place.geometry.location.lng();
+            //alert("This function is working!");
+            //alert(place.name);
+           // alert(place.address_components[0].long_name);
+
+        });
+    }
+    google.maps.event.addDomListener(window, 'load', initialize); 
+
     </script>
 </html>
 
