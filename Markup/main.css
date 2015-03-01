@@ -68,6 +68,76 @@
 	font-size: 28px;
 	color: #A17960;
 	text-align: right;
+	float: right;
+}
+
+.progress {
+	margin-left: 50px;
+	top: 93px;
+	width: 95%;
+	height: auto;
+	position: fixed;
+}
+
+.step-container {
+	width: 33%;
+	display: inline-block;
+}
+
+.progress-bar {
+	width: 95%;
+	height: 4px;
+}
+
+.progress-text {
+	text-align: left;
+	font-weight: bold;
+	text-transform: uppercase;
+	font-size: 13px;
+	font-style: italic;
+	margin-top: 5px;
+}
+
+.current-bar {
+	background-color: white;
+}
+
+.future-bar {
+	background-color: #252525;
+}
+
+.past-bar {
+	background-color: rgba(37, 37, 37, 0.49);
+}
+
+.current-text {
+	color: white;
+}
+
+.future-text {
+	color: #252525;
+}
+
+.past-text {
+	color: rgba(37, 37, 37, 0.49);
+}
+
+.results-container {
+	position: relative;	
+	width: 100%;
+	height: auto;
+	margin-top: 140px;
+}
+
+.event-tile {
+	width: 50%;
+	display: inline-block;
+	width: 50%;
+	float: left;
+	background-color: #777777;
+	padding: 0;
+	margin: 0;
+	margin-bottom: -5px;
 }
 
 .back {
