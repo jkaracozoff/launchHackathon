@@ -17,11 +17,9 @@
                      <%if( locals.user == ''){%>
 				<div onclick="window.location = '/login';" class="hyperlink">Login</div>
 				 <%}else{%>
-                      <img src=<%=user.profile.picture%>>
-                       <a><%=user.profile.name%></a>
+                      <img id="profilepic" src=<%=user.profile.picture%>>
+                       <a onclick="window.location = '/account';" class="hyperlinkprofile"><%=user.profile.name%></a>
                    
-
-				 <div onclick="window.location = '/account';" class="hyperlink">Profile</div>
          
                    <%}%>
 				<div class="hyperlink">Become a guide</div>

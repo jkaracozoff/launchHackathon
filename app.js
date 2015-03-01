@@ -70,7 +70,7 @@ app.engine('jade', engines.jade);
 app.engine('ejs', engines.ejs);
 app.use(compress());
 app.use(connectAssets({
-  paths: [path.join(__dirname, 'public/')]
+  paths: [path.join(__dirname, 'public/js'),path.join(__dirname, 'public/css')]
 }));
 
 app.use(logger('dev'));

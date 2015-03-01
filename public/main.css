@@ -253,6 +253,13 @@
 	-webkit-font-smoothing: antialiased;
 }
 
+.hyperlinkprofile {
+	margin-left: 4px;
+	cursor: pointer;
+	display: inline-block;
+	-webkit-font-smoothing: antialiased;
+}
+
 .container {
 	width: auto;
 	height: auto;
@@ -435,7 +442,16 @@ h1 {
 	font-size: 12px;
 }
 
+#profilepic {
+	height:30px;
+	width:30px;
+	 background-size: cover;
 
+ border-radius: 15px;
+ -webkit-border-radius: 15px;
+ -moz-border-radius: 15px;
+
+}
 
 
 
