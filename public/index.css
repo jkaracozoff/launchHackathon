@@ -1,4 +1,4 @@
-html, body, #map-canvas {
+#map-canvas {
         font-family: sans-serif;
         height: 100%;
         margin: 0px;
@@ -8,12 +8,31 @@ html, body, #map-canvas {
         background-size: cover;
       }
 
+body {
+margin: 0px;
+
+}
+
+
 #login {
 position: absolute;
 right: 0px;
 width: 200px;
 background-color: #3498db;
 } 
+
+#profile{
+     padding:0px;
+     border: 0 none;
+     height: 30px;
+     position: absolute;
+     right: 0px;
+     width: 200px;
+     border:0px;
+    background-color: #3498db;
+
+}
+
 
 #signup {
 position: absolute;
@@ -25,7 +44,7 @@ background-color: #2ecc71;
 #locationField {
       font-family: sans-serif;
       text-align: center;
-      position: relative;
+      position: fixed;
       width: 100%;
       top: 50%;
       }
@@ -49,8 +68,7 @@ background-color: #2ecc71;
 	border: 0 none;
 	border-radius: 1px;
 	}    
-	margin: 10px 5px;
-}
+
 
 .next:hover{
 	box-shadow: 0 0 0 2px white, 0 0 0 3px #27AE60;
@@ -66,4 +84,23 @@ box-shadow: 0 0 0 2px white, 0 0 0 3px #27AE60;
 
 #images {
 	text-align: center;
+}
+#profile button{
+  height: 30px;
+  border:0px;
+}
+#profile img{
+  float:left;
+  height:30px;
+  width:30px;
+}
+#profile a{
+  text-align: center;
+margin: auto;
+  font-family: 'Open Sans', sans-serif;
+  padding: 5px;
+  font-size: 14px;
+  margin-left: auto;
+  margin-right: auto;
+  color: white;
 }

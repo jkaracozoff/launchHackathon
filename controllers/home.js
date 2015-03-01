@@ -3,7 +3,9 @@
  * Home page.
  */
 exports.index = function(req, res) {
-  res.render('home', {
-    title: 'Home'
+	console.log(req);
+  res.render('../public/index.ejs', {
+    title: 'Home', user: req.user
   });
 };
+

@@ -407,6 +407,11 @@ exports.isAuthenticated = function(req, res, next) {
   res.redirect('/login');
 };
 
+exports.isAuthenticatedHome = function(req, res, next) {
+  if (req.isAuthenticated()) return next();
+
+};
+
 /**
  * Authorization Required middleware.
  */

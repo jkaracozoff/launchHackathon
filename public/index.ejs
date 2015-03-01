@@ -5,7 +5,7 @@
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
     <link href="index.css" rel="stylesheet">
-
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
     <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
     <script>
@@ -74,13 +74,24 @@ function geolocate() {
   }
 }
 // [END region_geolocation]
-
+  
     </script>
     
   </head>
   
   <header>
-  <button class="next" id="login" type="button" onclick="location.href = '/login';">Login</button>
+   <% if(this.user){%>
+   
+  <button class="next" type="button"  onclick="location.href = '/login';">Login</button>
+ <%}else{%>
+    <button id="profile" type="button" onclick="location.href = '/account';">
+     
+     <img src=<%=user.profile.picture%>>
+     <a><%=user.profile.name%></a>
+
+    </button>
+    
+  <%}%>
   </header>
 
   <body onload="initialize()">

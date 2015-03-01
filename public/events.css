@@ -25,7 +25,7 @@ background-color: #2ecc71;
 #locationField {
       font-family: sans-serif;
       text-align: center;
-      position: relative;
+      position: fixed;
       width: 100%;
       top: 50%;
       }

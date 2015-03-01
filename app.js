@@ -4,6 +4,7 @@
 var express = require('express');
 var cookieParser = require('cookie-parser');
 var compress = require('compression');
+var engines = require('consolidate');
 var session = require('express-session');
 var bodyParser = require('body-parser');
 var logger = require('morgan');
@@ -29,6 +30,7 @@ var userController = require('./controllers/user');
 var apiController = require('./controllers/api');
 var contactController = require('./controllers/contact');
 var expediaController = require('./controllers/expedia');
+var publicController = require('./controllers/public');
 
 /**
  * API keys and Passport configuration.
@@ -54,7 +56,10 @@ mongoose.connection.on('error', function() {
  */
 app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, 'views'));
+var engines = require('consolidate');
 app.set('view engine', 'jade');
+app.engine('jade', engines.jade);
+app.engine('ejs', engines.ejs);
 app.use(compress());
 app.use(connectAssets({
   paths: [path.join(__dirname, 'public/css'), path.join(__dirname, 'public/js')]
@@ -75,11 +80,13 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
+/*
 app.use(lusca({
   csrf: true,
   xframe: 'SAMEORIGIN',
   xssProtection: true
 }));
+*/
 app.use(function(req, res, next) {
   res.locals.user = req.user;
   next();
@@ -96,7 +103,9 @@ app.use(express.static(path.join(__dirname, 'public'), { maxAge: 31557600000 }))
 
 app.get('/expedia/:from/:to', expediaController.getPrediction);
 
-app.get('/', homeController.index);
+app.get('/',homeController.index);
+app.get('/createevent', publicController.createevent);
+app.post('/createevent', publicController.postevent);
 app.get('/login', userController.getLogin);
 app.post('/login', userController.postLogin);
 app.get('/logout', userController.logout);
@@ -113,6 +122,7 @@ app.post('/account/profile', passportConf.isAuthenticated, userController.postUp
 app.post('/account/password', passportConf.isAuthenticated, userController.postUpdatePassword);
 app.post('/account/delete', passportConf.isAuthenticated, userController.postDeleteAccount);
 app.get('/account/unlink/:provider', passportConf.isAuthenticated, userController.getOauthUnlink);
+
 
 /**
  * API examples routes.
