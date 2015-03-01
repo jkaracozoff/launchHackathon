@@ -7,6 +7,18 @@
 </head>
 <body>
 	<div class="results">
+		<div class="progress">
+			<div class="step-container">
+				<div class="progress-bar current-bar"></div>
+				<div class="progress-text current-text">1. Pick an event</div>
+			</div>
+			<div class="step-container">
+				<div class="progress-text future-text">2. Choose a travel package</div>
+			</div>
+			<div class="step-container">
+				<div class="progress-text future-text">3. Book your Veique</div>
+			</div>
+		</div>
 		<div class="preferences">
 			<div class="preference-option active">Most popular</div>
 			<div class="preference-option after-option">All</div>
@@ -35,35 +47,23 @@
 		<div class="nav2">
 			<div class="search-bar">
 				<div class="main-search">
-					<div class="normal-text smaller">I want to go to</div>
-					<div class="normal-text smaller" style="color:#C89777;">
-						<span id="location" contenteditable="true">Rome, Italy</span>
-						<!--<div class="underline-box small-box"></div>-->
-					</div>
-					<div class="normal-text smaller">sometime in</div>
-					<div class="normal-text smaller" style="color:#C89777; outline: none;">
-						<span contenteditable="true">March</span>
-						<!--<div class="underline-box small-box"></div>-->
-					</div>
-					<div class="normal-text smaller">.</div>
+				<div class="normal-text smaller">I want to go to</div>
+				<div class="normal-text smaller" style="color:#C89777;">
+					<input type = 'text' placeholder="Rome, Italy" value='' id='location2' autofocus/>
 				</div>
+				<div class="normal-text smaller">sometime in</div>
+				<div class="normal-text smaller" style="color:#C89777;">
+					<input type = 'text' placeholder="August" value='' id='month2' />
+				</div>
+				<div class="normal-text smaller">.</div>
+				<!--<a href="search.html"><div class="normal-text icon homeicon" style="font-size:50px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;E</div></a>-->
+			</div>
 			</div>
 			<a href="index.html"><div class="close-btn icon">B</div></a>
 		</div>
-		<div class="progress">
-			<div class="step-container">
-				<div class="progress-bar current-bar"></div>
-				<div class="progress-text current-text">1. Pick an event</div>
-			</div>
-			<div class="step-container">
-				<div class="progress-text future-text">2. Choose a travel package</div>
-			</div>
-			<div class="step-container">
-				<div class="progress-text future-text">3. Book your Veique</div>
-			</div>
-		</div>
 	</div>
-	<script src="selectStart.js"></script>
+	<script src="inputresize3.js"></script>
+	<script src="inputresize4.js"></script>
 </body>
 </html>
 
